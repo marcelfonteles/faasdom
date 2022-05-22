@@ -362,7 +362,7 @@ async function deployAWS(params, func, funcFirstUpperCase, testName) {
 		var promises = [];
 
 		if(params.node == 'true') {
-			let p = deployFunction(constants.AWS, constants.NODE, func, 'node_' + func, 'node_' + func, 'node_' + func, 'nodejs10.x', '', 'index.handler', '/aws/src/node/node_' + func + '/', 'Node.js', '', '', params.ram, params.timeout);
+			let p = deployFunction(constants.AWS, constants.NODE, func, 'node_' + func, 'node_' + func, 'node_' + func, 'nodejs14.x', '', 'index.handler', '/aws/src/node/node_' + func + '/', 'Node.js', '', '', params.ram, params.timeout);
 			promises.push(p);
 		}
 		if(params.python == 'true') {
@@ -479,7 +479,7 @@ async function deployGoogle(params, func, funcFirstUpperCase, testName) {
 		var promises = [];
 
 		if(params.node == 'true') {
-			let p = deployFunction(constants.GOOGLE, constants.NODE, func, 'node_' + func, '', '', 'nodejs10', '', '', '/google/src/node/' + func, 'Node.js', '', '', params.ram, params.timeout);
+			let p = deployFunction(constants.GOOGLE, constants.NODE, func, 'node_' + func, '', '', 'nodejs14', '', '', '/google/src/node/' + func, 'Node.js', '', '', params.ram, params.timeout);
 			promises.push(p);
 		}
 		if(params.python == 'true') {
