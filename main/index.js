@@ -11,7 +11,7 @@ const locks = require('locks');
 const Influx = require('influx');
 
 const influx = new Influx.InfluxDB({
-    host: 'localhost',
+    host: '192.168.1.4',
     port: 8086,
     database: 'results',
     username: 'benchmark-suite',
@@ -589,7 +589,7 @@ async function deployFunction(provider, language, test, functionName, APIName, A
 			} else if(language == constants.GO) {
 
 				/** Build go */
-				await execShellCommand("docker run --rm -v serverless-data:" + dockerMountPoint + " golang:1.11-stretch /bin/sh -c 'cd " + dockerMountPoint + srcPath + "; go clean; go get github.com/aws/aws-lambda-go/lambda github.com/aws/aws-lambda-go/events; go build *.go'").catch((err) => {
+				await execShellCommand("docker run --rm -v serverless-data:" + dockerMountPoint + " golang:1.11-stretch /bin/sh -c 'cd " + dockerMountPoint + srcPath + "; go clean; go get github.com/aws/aws-lambda-go/lambda github.com/aws/aws-lambda-go/events; GOOS=linux GOARCH=amd64 go build *.go'").catch((err) => {
 					error = true;
 					currentLogStatusAWS += '<li><span style="color:red">ERROR:</span> Error happened while building function. Function ' + functionName + ' in language ' + languageName + ' was <span style="font-weight: bold">NOT</span> deployed.</li>';
 				});
