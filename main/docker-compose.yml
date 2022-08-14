@@ -6,7 +6,7 @@ services:
     container_name: aws-cli
 
   azure-cli:
-    image: mcr.microsoft.com/azure-cli:2.0.78
+    image: mcr.microsoft.com/azure-cli
     container_name: azure-cli
 
   google-cli:

@@ -86,18 +86,18 @@
                                     <input type="checkbox" class="form-check-input" id="azure">
                                     <label class="form-check-label" for="azure">Microsoft Azure (Linux)</label>
                                   </div>
-                                  <div class="form-check">
+                                  <!-- <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="azureWindows">
                                     <label class="form-check-label" for="azureWindows">Microsoft Azure (Windows)</label>
-                                  </div>
+                                  </div> -->
                                   <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="google">
                                     <label class="form-check-label" for="google">Google Cloud</label>
                                   </div>
-                                  <div class="form-check">
+                                  <!-- <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="ibm">
                                     <label class="form-check-label" for="ibm">IBM Cloud</label>
-                                  </div>
+                                  </div> -->
                             </div>
                             <div class="col-3">
                                 <b>Languages:</b>
@@ -113,10 +113,10 @@
                                     <input type="checkbox" class="form-check-input" id="go">
                                     <label class="form-check-label" for="go">Go</label>
                                   </div>
-                                  <div class="form-check">
+                                  <!-- <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="dotnet">
                                     <label class="form-check-label" for="dotnet">.NET</label>
-                                  </div>
+                                  </div> -->
                             </div>
   
                         </div>
@@ -175,7 +175,7 @@
                                 <option value="asia-northeast1">asia-northeast1, Tokyo</option>
                               </select>
                             </div>
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <b>IBM Location:</b><br>
                                 <select id="ibmlocation" class="custom-select">
                                   <option value="eu-de" selected>eu-de, Frankfurt</option>
@@ -183,7 +183,7 @@
                                   <option value="us-south">us-south, Dallas</option>
                                   <option value="us-east">us-east, Washington, D.C.</option>
                                 </select>
-                              </div>
+                              </div> -->
                           </div>
                         <br>
                         <div class="row">
@@ -467,7 +467,7 @@
                                         <option value="node">Node.js</option>
                                         <option value="python">Python</option>
                                         <option value="go">Go</option>
-                                        <option value="dotnet">.NET Core</option>
+                                        <!-- <option value="dotnet">.NET Core</option> -->
                                       </select>
                                     </div>
                               </div>
@@ -487,12 +487,12 @@
         <div id="spinnerAWS" class="spinner-border text-primary"></div>
         <div id="resultAzure" class="console"><%= data %></div>
         <div id="spinnerAzure" class="spinner-border text-primary"></div>
-        <div id="resultAzureWindows" class="console"><%= data %></div>
-        <div id="spinnerAzureWindows" class="spinner-border text-primary"></div>
+        <!-- <div id="resultAzureWindows" class="console"><%= data %></div>
+        <div id="spinnerAzureWindows" class="spinner-border text-primary"></div> -->
         <div id="resultGoogle" class="console"><%= data %></div>
         <div id="spinnerGoogle" class="spinner-border text-primary"></div>
-        <div id="resultIBM" class="console"><%= data %></div>
-        <div id="spinnerIBM" class="spinner-border text-primary"></div>
+        <!-- <div id="resultIBM" class="console"><%= data %></div> -->
+        <!-- <div id="spinnerIBM" class="spinner-border text-primary"></div> -->
         <div id="spinnerGeneral" class="spinner-border text-primary"></div>
         <div id="resultEnd" class="console"><%= data %></div>
   </div>
@@ -506,7 +506,7 @@
 <script>
 $('#deployButton').click(function deploy(){
 
-  if(!($("#amazon").prop('checked') || $("#azure").prop('checked') || $("#azureWindows").prop('checked') || $("#google").prop('checked') || $("#ibm").prop('checked')) || 
+  if(!($("#amazon").prop('checked') || $("#azure").prop('checked') /* || $("#azureWindows").prop('checked') */ || $("#google").prop('checked') /* || $("#ibm").prop('checked')*/) ||  
      !($("#node").prop('checked') || $("#python").prop('checked') || $("#go").prop('checked') || $("#dotnet").prop('checked'))) {
     $("#resultStart").html($("#resultStart").html() + '<span style="color:red">Please choose at least one cloud provider and one language if you want to deploy.</span><br>');
     return;
@@ -522,9 +522,9 @@ $('#deployButton').click(function deploy(){
     timeout: $('#timeout').val(),
     aws: $("#amazon").prop('checked'), 
     azure: $("#azure").prop('checked'),
-    azureWindows: $("#azureWindows").prop('checked'),
+    // azureWindows: $("#azureWindows").prop('checked'),
     google: $("#google").prop('checked'),
-    ibm: $("#ibm").prop('checked'),
+    // ibm: $("#ibm").prop('checked'),
     node: $("#node").prop('checked'),
     python: $("#python").prop('checked'),
     go: $("#go").prop('checked'),
@@ -532,7 +532,7 @@ $('#deployButton').click(function deploy(){
     awslocation: $('#awslocation').val(),
     azurelocation: $('#azurelocation').val(),
     googlelocation: $('#googlelocation').val(),
-    ibmlocation: $('#ibmlocation').val()
+    // ibmlocation: $('#ibmlocation').val()
   }, success:function(res){
       $("#resultStart").html(res.data);
       update();
@@ -632,9 +632,9 @@ function update() {
       $("#resultStart").html(res.dataStart);
       $("#resultAWS").html(res.dataAWS);
       $("#resultAzure").html(res.dataAzure);
-      $("#resultAzureWindows").html(res.dataAzureWindows);
+      // $("#resultAzureWindows").html(res.dataAzureWindows);
       $("#resultGoogle").html(res.dataGoogle);
-      $("#resultIBM").html(res.dataIBM);
+      // $("#resultIBM").html(res.dataIBM);
       $("#resultEnd").html(res.dataEnd);
       if(res.runningAWS) {
         $('#spinnerAWS').show();
@@ -646,29 +646,29 @@ function update() {
       } else {
         $('#spinnerAzure').hide();
       }
-      if(res.runningAzureWindows) {
-        $('#spinnerAzureWindows').show();
-      } else {
-        $('#spinnerAzureWindows').hide();
-      }
+      // if(res.runningAzureWindows) {
+      //   $('#spinnerAzureWindows').show();
+      // } else {
+      //   $('#spinnerAzureWindows').hide();
+      // }
       if(res.runningGoogle) {
         $('#spinnerGoogle').show();
       } else {
         $('#spinnerGoogle').hide();
       }
-      if(res.runningIBM) {
-        $('#spinnerIBM').show();
-      } else {
-        $('#spinnerIBM').hide();
-      }
+      // if(res.runningIBM) {
+      //   $('#spinnerIBM').show();
+      // } else {
+      //   $('#spinnerIBM').hide();
+      // }
       if(res.running) {
         setTimeout(function(){update();}, 1000);
       } else {
         $('#spinnerAWS').hide();
         $('#spinnerAzure').hide();
-        $('#spinnerAzureWindows').hide();
+        // $('#spinnerAzureWindows').hide();
         $('#spinnerGoogle').hide();
-        $('#spinnerIBM').hide();
+        // $('#spinnerIBM').hide();
         $('#spinnerGeneral').hide();
       }
   }});
@@ -688,18 +688,18 @@ $('#clearButton').click(function clear() {
   $("#resultStart").html('');
   $("#resultAWS").html('');
   $("#resultAzure").html('');
-  $("#resultAzureWindows").html('');
+  // $("#resultAzureWindows").html('');
   $("#resultGoogle").html('');
-  $("#resultIBM").html('');
+  // $("#resultIBM").html('');
   $("#resultEnd").html('');
 });
 
 $(document).ready( function() {
   $('#spinnerAWS').hide();
   $('#spinnerAzure').hide();
-  $('#spinnerAzureWindows').hide();
+  // $('#spinnerAzureWindows').hide();
   $('#spinnerGoogle').hide();
-  $('#spinnerIBM').hide();
+  // $('#spinnerIBM').hide();
   $('#spinnerGeneral').hide();
   loadTestNames("factors");
   $('#testNameLatency').val(new Date().toISOString().slice(0,10) + '-LatencyTest');

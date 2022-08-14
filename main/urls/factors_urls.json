@@ -1,1 +1,1 @@
-[]
+[{"provider":"aws","language":"go","url":"https://coyshj2k43.execute-api.us-west-1.amazonaws.com/test/go_factors","memory":"128","region":"us-west-1"},{"provider":"azure","language":"go","url":"https://go-factors-linux-451-westeurope.azurewebsites.net/api/factors","memory":"128","region":"westeurope"},{"provider":"google","language":"go","url":"https://europe-west1-gcp-functions-351018.cloudfunctions.net/Go_factors","memory":"128","region":"europe-west1"}]

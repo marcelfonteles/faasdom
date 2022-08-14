@@ -21,7 +21,7 @@ const influx = new Influx.InfluxDB({
 
 /** Constant strings */
 const AWS_CONTAINER_IMAGE = 'mikesir87/aws-cli:1.16.310';
-const AZURE_CONTAINER_IMAGE = 'mcr.microsoft.com/azure-cli:2.0.78';
+const AZURE_CONTAINER_IMAGE = 'mcr.microsoft.com/azure-cli';
 const GOOGLE_CONTAINER_IMAGE = 'google/cloud-sdk:274.0.1-alpine';
 const IBM_CONTAINER_IMAGE = 'ibmcom/ibm-cloud-developer-tools-amd64:0.20.0';
 
@@ -402,7 +402,7 @@ async function deployAzure(params, func, funcFirstUpperCase, testName) {
 		var promises = [];
 
 		if(params.node == 'true') {
-			let p = deployFunction(constants.AZURE, constants.NODE, func, 'node-' + func, '', '', 'node', '10', '', '/azure/src/node/node_' + func, 'Node.js', '', '', params.ram, params.timeout);
+			let p = deployFunction(constants.AZURE, constants.NODE, func, 'node-' + func, '', '', 'node', '12', '', '/azure/src/node/node_' + func, 'Node.js', '', '', params.ram, params.timeout);
 			promises.push(p);
 		}
 		if(params.python == 'true') {
@@ -410,7 +410,9 @@ async function deployAzure(params, func, funcFirstUpperCase, testName) {
 			promises.push(p);
 		}
 		if(params.go == 'true') {
-			currentLogStatusAzure += '<li><span style="color:orange">SKIP:</span> No Go runtime</li>';
+			// currentLogStatusAzure += '<li><span style="color:orange">SKIP:</span> No Go runtime</li>';
+			let p = deployFunction(constants.AZURE, constants.GO, func, 'go-' + func, 'go-' + func, 'go-' + func, 'go1.x', '', func, '/azure/src/go/go_' + func + '/', 'Go', '', '', params.ram, params.timeout);
+			promises.push(p);
 		}
 		if(params.dotnet == 'true') {
 			let p = deployFunction(constants.AZURE, constants.DOTNET, func, 'dotnet-' + func, '', '', 'dotnet', '2', '', '/azure/src/dotnet/dotnet_' + func, '.NET', '', '', params.ram, params.timeout);
@@ -841,6 +843,27 @@ async function deployFunction(provider, language, test, functionName, APIName, A
 					azureDotnetMutex.unlock();
 				});
 
+			} else if (language == constants.GO) {
+				/** Build go */
+				await execShellCommand("docker run --rm -v serverless-data:" + dockerMountPoint + " golang:1.11-stretch /bin/sh -c 'cd " + dockerMountPoint + srcPath + "; go clean; GOOS=linux GOARCH=amd64 go build *.go'").catch((err) => {
+					error = true;
+					currentLogStatusAWS += '<li><span style="color:red">ERROR:</span> Error happened while building function. Function ' + functionName + ' in language ' + languageName + ' was <span style="font-weight: bold">NOT</span> deployed.</li>';
+				});
+				if(error) {
+					return;
+				}
+
+				/** Zip function */
+				await execShellCommand("docker run --rm -v serverless-data:" + dockerMountPoint + " bschitter/alpine-with-zip:0.1 /bin/sh -c 'cd " + dockerMountPoint + srcPath + "; zip -0 -r " + functionName + ".zip *'").catch((err) => {
+					error = true;
+					currentLogStatusAWS += '<li><span style="color:red">ERROR:</span> Error happened while zipping function. Function ' + functionName + ' in language ' + languageName + ' was <span style="font-weight: bold">NOT</span> deployed.</li>';
+				});
+				if(error) {
+					return;
+				}
+
+				runtime = 'custom';
+
 			}
 
 			/** Create a resource group */
@@ -869,8 +892,13 @@ async function deployFunction(provider, language, test, functionName, APIName, A
 				return;
 			}
 
+			let runtimeAndVersion = ' --runtime ' + runtime + ' --runtime-version ' + runtimeVersion;
+			if (language == constants.GO) { 
+				runtimeAndVersion = ' --runtime custom';
+			}
+
 			/** Create a function app */
-			await execShellCommand(dockerPrefixOnlyCLIVolume + 'az functionapp create --resource-group ' + resourcegroupname + ' --consumption-plan-location ' + config.azure.region + ' --name ' + functionName + functionNamePostfix + rnd + '-' + config.azure.region + ' --storage-account ' + storagename + ' --runtime ' + runtime + ' --runtime-version ' + runtimeVersion + ' --os-type ' + os).catch((err) => {
+			await execShellCommand(dockerPrefixOnlyCLIVolume + 'az functionapp create --resource-group ' + resourcegroupname + ' --consumption-plan-location ' + config.azure.region + ' --name ' + functionName + functionNamePostfix + rnd + '-' + config.azure.region + ' --storage-account ' + storagename + runtimeAndVersion + ' --os-type ' + os).catch((err) => {
 				error = true;
 				if(provider == constants.AZURE) {
 					currentLogStatusAzure += '<li><span style="color:red">ERROR:</span> Error happened while creating function app. Function ' + functionName + ' in language ' + languageName + ' was <span style="font-weight: bold">NOT</span> deployed.</li>';

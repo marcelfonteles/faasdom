@@ -84,9 +84,11 @@ docker run -v serverless-data:/data --name helper bschitter/alpine-with-zip:0.1
 docker cp . helper:/data
 docker rm helper
 
+docker run -v serverless-data:/data --name helper bschitter/alpine-with-zip:0.1 && docker cp . helper:/data && docker rm helper
+
 # mount the volumes and login with the cloud provider
 docker run --rm -tiv aws-secrets:/root/.aws mikesir87/aws-cli:1.16.310 aws configure
-docker run --rm -tiv azure-secrets:/root/.azure mcr.microsoft.com/azure-cli:2.0.78 az login
+docker run --rm -tiv azure-secrets:/root/.azure mcr.microsoft.com/azure-cli az login
 docker run --rm -tiv google-secrets:/root/.config/gcloud google/cloud-sdk:274.0.1-alpine gcloud init
 docker run --rm -tiv ibm-secrets:/root/.bluemix ibmcom/ibm-cloud-developer-tools-amd64:0.20.0 ibmcloud login
 

@@ -1,0 +1,156 @@
+TIME: 2022-08-14T11:28:16.828Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-factors-rg-linux-westeurope -n go-factors-linux-451-westeurope --src /app/azure/src/go/go_factors//go-factors.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:28:21.979Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-factors-rg-linux-westeurope -n go-factors-linux-451-westeurope --src /app/azure/src/go/go_factors//go-factors.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:28:31.054Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-factors-rg-linux-westeurope -n go-factors-linux-451-westeurope --src /app/azure/src/go/go_factors//go-factors.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-factors-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:50:31.485Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-matrix-rg-linux-westeurope -n go-matrix-linux-804-westeurope --src /app/azure/src/go/go_matrix//go-matrix.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-matrix-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-matrix-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-matrix-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-matrix-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:50:36.268Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-matrix-rg-linux-westeurope -n go-matrix-linux-804-westeurope --src /app/azure/src/go/go_matrix//go-matrix.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-matrix-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-matrix-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-matrix-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-matrix-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:52:58.339Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-filesystem-rg-linux-westeurope -n go-filesystem-linux-674-westeurope --src /app/azure/src/go/go_filesystem//go-filesystem.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:53:03.194Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-filesystem-rg-linux-westeurope -n go-filesystem-linux-674-westeurope --src /app/azure/src/go/go_filesystem//go-filesystem.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:53:10.907Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-filesystem-rg-linux-westeurope -n go-filesystem-linux-674-westeurope --src /app/azure/src/go/go_filesystem//go-filesystem.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:53:18.478Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-filesystem-rg-linux-westeurope -n go-filesystem-linux-674-westeurope --src /app/azure/src/go/go_filesystem//go-filesystem.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:53:27.197Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-filesystem-rg-linux-westeurope -n go-filesystem-linux-674-westeurope --src /app/azure/src/go/go_filesystem//go-filesystem.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:53:36.832Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-filesystem-rg-linux-westeurope -n go-filesystem-linux-674-westeurope --src /app/azure/src/go/go_filesystem//go-filesystem.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:53:47.910Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-filesystem-rg-linux-westeurope -n go-filesystem-linux-674-westeurope --src /app/azure/src/go/go_filesystem//go-filesystem.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
+TIME: 2022-08-14T11:54:00.124Z
+ERROR: Error: Command failed: docker run --rm -v azure-secrets:/root/.azure -v serverless-data:/app mcr.microsoft.com/azure-cli az functionapp deployment source config-zip -g go-filesystem-rg-linux-westeurope -n go-filesystem-linux-674-westeurope --src /app/azure/src/go/go_filesystem//go-filesystem.zip
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+STDOUT: 
+STDERR: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR: (ResourceNotFound) The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+Code: ResourceNotFound
+Message: The Resource 'Microsoft.Web/serverFarms/WestEuropeLinuxDynamicPlan' under resource group 'go-filesystem-rg-linux-westeurope' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+----------------------------------------------------------------------------------------------------
