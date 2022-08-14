@@ -1593,7 +1593,7 @@
           "format": "ms",
           "label": "Request Time",
           "logBase": 1,
-          "max": "500",
+          "max": null,
           "min": "0",
           "show": true
         },
