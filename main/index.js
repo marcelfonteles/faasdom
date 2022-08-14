@@ -410,7 +410,6 @@ async function deployAzure(params, func, funcFirstUpperCase, testName) {
 			promises.push(p);
 		}
 		if(params.go == 'true') {
-			// currentLogStatusAzure += '<li><span style="color:orange">SKIP:</span> No Go runtime</li>';
 			let p = deployFunction(constants.AZURE, constants.GO, func, 'go-' + func, 'go-' + func, 'go-' + func, 'go1.x', '', func, '/azure/src/go/go_' + func + '/', 'Go', '', '', params.ram, params.timeout);
 			promises.push(p);
 		}
