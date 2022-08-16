@@ -9,6 +9,7 @@ const NODE = 'node';
 const PYTHON = 'python';
 const GO = 'go';
 const DOTNET = 'dotnet';
+const RUST = 'rust';
 
 const LATENCY = 'latency';
 const FACTORS = 'factors';
@@ -17,10 +18,10 @@ const FILESYSTEM = 'filesystem';
 const CUSTOM = 'custom';
 
 const PROVIDERS = [AWS, AZURE, AZUREWINDOWS, GOOGLE, IBM];
-const LANGUAGES = [NODE, PYTHON, GO, DOTNET];
+const LANGUAGES = [NODE, PYTHON, GO, DOTNET, RUST];
 const TESTS = [LATENCY, FACTORS, MATRIX, FILESYSTEM, CUSTOM];
 
 module.exports = {  AWS, AZURE, AZUREWINDOWS, GOOGLE, IBM,
-                    NODE, PYTHON, GO, DOTNET,
+                    NODE, PYTHON, GO, DOTNET, RUST,
                     LATENCY, FACTORS, MATRIX, FILESYSTEM, CUSTOM,
-                    PROVIDERS, LANGUAGES, TESTS}
+                    PROVIDERS, LANGUAGES, TESTS }

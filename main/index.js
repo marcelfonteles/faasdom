@@ -417,6 +417,10 @@ async function deployAzure(params, func, funcFirstUpperCase, testName) {
 			let p = deployFunction(constants.AZURE, constants.DOTNET, func, 'dotnet-' + func, '', '', 'dotnet', '2', '', '/azure/src/dotnet/dotnet_' + func, '.NET', '', '', params.ram, params.timeout);
 			promises.push(p);
 		}
+		if (params.rust == 'true') {
+			let p = deployFunction(constants.AZURE, constants.RUST, func, 'rust-' + func, 'rust-' + func, 'rust-' + func, 'rust', '', func, '/azure/src/rust/rust_' + func + '/', 'Rust', '', '', params.ram, params.timeout);
+			promises.push(p);
+		}
 
 		await Promise.all(promises);
 
@@ -862,7 +866,25 @@ async function deployFunction(provider, language, test, functionName, APIName, A
 				}
 
 				runtime = 'custom';
+			} else if (language == constants.RUST) {
+				/** Build rust */
+				await execShellCommand("docker run --rm -e RUSTFLAGS='-C linker=x86_64-linux-gnu-gcc'  -v serverless-data:" + dockerMountPoint + " rust /bin/sh -c 'cd " + dockerMountPoint + srcPath + "; rustup target add x86_64-unknown-linux-musl; apt update && apt install -y musl-tools musl-dev; apt-get install -y build-essential; yes | apt install gcc-x86-64-linux-gnu; cargo build --release --target=x86_64-unknown-linux-musl; cp target/x86_64-unknown-linux-musl/release/handler .'").catch((err) => {
+					error = true;
+					currentLogStatusAWS += '<li><span style="color:red">ERROR:</span> Error happened while building function. Function ' + functionName + ' in language ' + languageName + ' was <span style="font-weight: bold">NOT</span> deployed.</li>';
+				});
+				if(error) {
+					return;
+				}
 
+				/** Zip function */
+				await execShellCommand("docker run --rm -v serverless-data:" + dockerMountPoint + " bschitter/alpine-with-zip:0.1 /bin/sh -c 'cd " + dockerMountPoint + srcPath + "; rm -r target; zip -0 -r " + functionName + ".zip *'").catch((err) => {
+					error = true;
+					currentLogStatusAWS += '<li><span style="color:red">ERROR:</span> Error happened while zipping function. Function ' + functionName + ' in language ' + languageName + ' was <span style="font-weight: bold">NOT</span> deployed.</li>';
+				});
+				if(error) {
+					return;
+				}
+				runtime = 'custom';
 			}
 
 			/** Create a resource group */
@@ -892,7 +914,7 @@ async function deployFunction(provider, language, test, functionName, APIName, A
 			}
 
 			let runtimeAndVersion = ' --runtime ' + runtime + ' --runtime-version ' + runtimeVersion;
-			if (language == constants.GO) { 
+			if (language == constants.GO || language == constants.RUST) { 
 				runtimeAndVersion = ' --runtime custom';
 			}
 

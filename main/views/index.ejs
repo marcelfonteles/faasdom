@@ -511,28 +511,35 @@
 $('#deployButton').click(function deploy(){
 
   if(!($("#amazon").prop('checked') || $("#azure").prop('checked') /* || $("#azureWindows").prop('checked') */ || $("#google").prop('checked') /* || $("#ibm").prop('checked')*/) ||  
-     !($("#node").prop('checked') || $("#python").prop('checked') || $("#go").prop('checked') || $("#dotnet").prop('checked'))) {
+     !($("#node").prop('checked') || $("#python").prop('checked') || $("#go").prop('checked') || $("#dotnet").prop('checked') || $("#rust").prop('checked'))) {
     $("#resultStart").html($("#resultStart").html() + '<span style="color:red">Please choose at least one cloud provider and one language if you want to deploy.</span><br>');
     return;
   }
 
   $.ajax({url: 'deploy', type: 'get',data: {
+    // tests
     latency: $("#latencyTest").prop('checked'),
     factors: $("#factorsTest").prop('checked'),
     matrix: $("#matrixTest").prop('checked'),
     filesystem: $("#filesystemTest").prop('checked'),
     custom: $("#customTest").prop('checked'),
+    // ram
     ram: document.querySelector('input[name="ram"]:checked').value,
+    // timeout
     timeout: $('#timeout').val(),
+    // providers
     aws: $("#amazon").prop('checked'), 
     azure: $("#azure").prop('checked'),
     // azureWindows: $("#azureWindows").prop('checked'),
     google: $("#google").prop('checked'),
     // ibm: $("#ibm").prop('checked'),
+    // languages
     node: $("#node").prop('checked'),
     python: $("#python").prop('checked'),
     go: $("#go").prop('checked'),
     dotnet: $("#dotnet").prop('checked'),
+    rust: $("#rust").prop('checked'),
+    //location
     awslocation: $('#awslocation').val(),
     azurelocation: $('#azurelocation').val(),
     googlelocation: $('#googlelocation').val(),
