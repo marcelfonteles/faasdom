@@ -1,17 +1,22 @@
-use std::collections::HashMap;
 use std::env;
 use std::net::Ipv4Addr;
-use warp::{http::Response, Filter};
+use warp::{Filter};
+use serde_json::{Value, Map};
+
 
 #[tokio::main]
 async fn main() {
+
     let example1 = warp::get()
         .and(warp::path("api"))
-        .and(warp::path("HttpExample"))
-        .and(warp::query::<HashMap<String, String>>())
-        .map(|p: HashMap<String, String>| match p.get("name") {
-            Some(name) => Response::builder().body(format!("Hello, {}. This HTTP triggered function executed successfully.", name)),
-            None => Response::builder().body(String::from("This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response.")),
+        .and(warp::path("latency"))
+        .map(|| {
+            let mut map = Map::new();
+            let mut inner_map = Map::new();
+            inner_map.insert("test".to_string(), serde_json::Value::String("latency test".to_string()));
+            map.insert("success".to_string(), Value::Bool(true));
+            map.insert("payload".to_string(), serde_json::Value::Object(inner_map));
+            warp::reply::json(&map)
         });
 
     let port_key = "FUNCTIONS_CUSTOMHANDLER_PORT";
