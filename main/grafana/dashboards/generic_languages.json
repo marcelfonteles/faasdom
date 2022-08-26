@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1573757489379,
+  "iteration": 1661474118558,
   "links": [],
   "panels": [
     {
@@ -1766,7 +1766,7 @@
           "measurement": "latency",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'aws' AND \"language\" = 'dotnet' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
+          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'aws' AND \"language\" = 'rust' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1806,7 +1806,7 @@
           "measurement": "latency",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'azure' AND \"language\" = 'dotnet' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
+          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'azure' AND \"language\" = 'rus' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -2081,7 +2081,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT count(\"success\") FROM \"$test\" WHERE language = 'dotnet' and test = '$testName'",
+          "query": "SELECT count(\"success\") FROM \"$test\" WHERE language = 'rust' and test = '$testName'",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -2587,6 +2587,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "text": "latency",
           "value": "latency"
         },
@@ -2629,8 +2630,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "myLatencyTest",
-          "value": "myLatencyTest"
+          "text": "2022-08-26-LatencyTest",
+          "value": "2022-08-26-LatencyTest"
         },
         "datasource": "InfluxDB",
         "definition": "SHOW TAG VALUES ON \"results\" from \"$test\" WITH KEY = \"test\";",
@@ -2747,5 +2748,5 @@
   "timezone": "",
   "title": "Generic (grouped by programming language)",
   "uid": "-hAfW22Zz",
-  "version": 1
+  "version": 5
 }

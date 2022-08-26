@@ -11,7 +11,7 @@ const locks = require('locks');
 const Influx = require('influx');
 
 const influx = new Influx.InfluxDB({
-    host: '192.168.1.4',
+    host: '192.168.1.3',
     port: 8086,
     database: 'results',
     username: 'benchmark-suite',
