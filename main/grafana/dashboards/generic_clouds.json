@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1573757934191,
+  "iteration": 1661693112658,
   "links": [],
   "panels": [
     {
@@ -607,13 +607,13 @@
           ]
         },
         {
-          "alias": ".NET (Linux)",
+          "alias": "Rust (Linux)",
           "groupBy": [],
           "limit": "",
           "measurement": "latency",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'azure' AND \"language\" = 'dotnet' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
+          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'azure' AND \"language\" = 'rust' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -688,7 +688,7 @@
           ]
         },
         {
-          "alias": ".NET (Windows)",
+          "alias": "Rust (Windows)",
           "groupBy": [
             {
               "params": [
@@ -705,7 +705,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'azureWindows' AND \"language\" = 'dotnet' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
+          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'azureWindows' AND \"language\" = 'rust' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
           "rawQuery": true,
           "refId": "E",
           "resultFormat": "time_series",
@@ -2622,8 +2622,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "myLatencyTest",
-          "value": "myLatencyTest"
+          "text": "2022-07-30-LatencyTest",
+          "value": "2022-07-30-LatencyTest"
         },
         "datasource": "InfluxDB",
         "definition": "SHOW TAG VALUES ON \"results\" FROM $test WITH KEY = \"test\";",

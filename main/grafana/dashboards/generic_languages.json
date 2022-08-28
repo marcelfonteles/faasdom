@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1661474118558,
+  "iteration": 1661693007139,
   "links": [],
   "panels": [
     {
@@ -1806,7 +1806,7 @@
           "measurement": "latency",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'azure' AND \"language\" = 'rus' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
+          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'azure' AND \"language\" = 'rust' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -1846,7 +1846,7 @@
           "measurement": "latency",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'azureWindows' AND \"language\" = 'dotnet' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
+          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'azureWindows' AND \"language\" = 'rust' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -1886,7 +1886,7 @@
           "measurement": "latency",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'google' AND \"language\" = 'dotnet' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
+          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'google' AND \"language\" = 'rust' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
           "rawQuery": true,
           "refId": "D",
           "resultFormat": "time_series",
@@ -1926,7 +1926,7 @@
           "measurement": "latency",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'ibm' AND \"language\" = 'dotnet' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
+          "query": "SELECT mean(\"ms\") FROM \"$test\" WHERE (\"provider\" = 'ibm' AND \"language\" = 'rust' AND \"test\" =~ /^$testName$/) AND $timeFilter GROUP BY time($datapoints) fill(linear)",
           "rawQuery": true,
           "refId": "E",
           "resultFormat": "time_series",
@@ -1965,7 +1965,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "$test .NET",
+      "title": "$test Rust",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -2105,7 +2105,7 @@
       "thresholds": "",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Total Requests .NET",
+      "title": "Total Requests Rust",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -2311,7 +2311,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT count(\"success\") FROM \"$test\" WHERE language = 'dotnet' and success = True and test = '$testName'",
+          "query": "SELECT count(\"success\") FROM \"$test\" WHERE language = 'rust' and success = True and test = '$testName'",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -2335,7 +2335,7 @@
       "thresholds": "-2,-1",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Successful Requests .NET",
+      "title": "Successful Requests Rust",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -2541,7 +2541,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT count(\"success\") FROM \"$test\" WHERE language = 'dotnet' and success = false and test = '$testName'",
+          "query": "SELECT count(\"success\") FROM \"$test\" WHERE language = 'rust' and success = false and test = '$testName'",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -2565,7 +2565,7 @@
       "thresholds": "-2,-1",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Failed Requests .NET",
+      "title": "Failed Requests Rust",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -2748,5 +2748,5 @@
   "timezone": "",
   "title": "Generic (grouped by programming language)",
   "uid": "-hAfW22Zz",
-  "version": 5
+  "version": 3
 }

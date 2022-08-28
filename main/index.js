@@ -868,7 +868,7 @@ async function deployFunction(provider, language, test, functionName, APIName, A
 				runtime = 'custom';
 			} else if (language == constants.RUST) {
 				/** Build rust */
-				await execShellCommand("docker run --rm -e RUSTFLAGS='-C linker=x86_64-linux-gnu-gcc'  -v serverless-data:" + dockerMountPoint + " rust /bin/sh -c 'cd " + dockerMountPoint + srcPath + "; rustup target add x86_64-unknown-linux-musl; apt update && apt install -y musl-tools musl-dev; apt-get install -y build-essential; yes | apt install gcc-x86-64-linux-gnu; cargo build --release --target=x86_64-unknown-linux-musl; cp target/x86_64-unknown-linux-musl/release/handler .'").catch((err) => {
+				await execShellCommand("docker run --rm -v serverless-data:" + dockerMountPoint + " azure-rust /bin/sh -c 'cd " + dockerMountPoint + srcPath + "; cargo build --release --target=x86_64-unknown-linux-musl; cp target/x86_64-unknown-linux-musl/release/handler .'").catch((err) => {
 					error = true;
 					currentLogStatusAWS += '<li><span style="color:red">ERROR:</span> Error happened while building function. Function ' + functionName + ' in language ' + languageName + ' was <span style="font-weight: bold">NOT</span> deployed.</li>';
 				});
