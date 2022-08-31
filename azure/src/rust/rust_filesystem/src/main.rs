@@ -4,7 +4,9 @@ use std::env;
 use std::net::Ipv4Addr;
 use warp::{Filter};
 use serde_json::{Value, Map};
-
+use std::fs;
+use std::fs::File;
+use std::io::prelude::*;
 
 #[tokio::main]
 async fn main() {
@@ -15,77 +17,76 @@ async fn main() {
         return number_int;
     }
 
-    fn random_table(n: i64) -> Vec<Vec<i64>> {
-        let mut vec1 = Vec::with_capacity(n.try_into().unwrap());
+    fn filesystem(n: i64, size: i64) -> std::io::Result<()> {
         let mut rng = rand::thread_rng();
+        let random = rng.gen_range(0..900000);
+
+        fs::create_dir_all("/tmp/test")?;
+        let path = format!("/tmp/test/{}", random);
+        fs::create_dir_all(path)?;
+
+        let mut string: String = "".to_owned();
 
         let mut i: i64 = 0;
+        while i < size {
+            string.push_str("A");
+            i = i + 1;
+        }
+
+        // Write
+        i = 0;
         while i < n {
-            vec1.push(Vec::with_capacity(n.try_into().unwrap()));
-            
-            let mut j: i64 = 0;
-            while j < n {
-                vec1[i as usize].push(rng.gen_range(0..100));
-                j = j + 1;
-            }
-            i = i + 1;
-        }
-        
-        return vec1;
-    }
-
-    fn matrix(n: i64) -> Vec<Vec<i64>> {
-        let matrix_a = random_table(n);
-        let matrix_b = random_table(n);
-        let mut matrix_mult = Vec::with_capacity(n.try_into().unwrap());
-
-        let mut i: usize = 0;
-        while i < matrix_a.len() {
-            matrix_mult.push(Vec::with_capacity(n.try_into().unwrap()));
-
-            let mut j: usize = 0;
-            while j < matrix_b.len() {
-                let mut sum = 0;
-                let mut k: usize = 0;
-                while k  < matrix_a.len() {
-                    sum = sum + matrix_a[i][k] * matrix_b[k][j];
-                    k = k + 1;
-                }
-                matrix_mult[i as usize].push(sum);
-                j = j + 1;
-            }
+            let path_filename = format!("/tmp/test/{}/{}.txt", random, i);
+            let mut file = File::create(path_filename)?;
+            file.write_all(string.as_bytes())?;
             i = i + 1;
         }
 
-        return matrix_mult;
+        // Read
+        let mut test: String = "".to_owned();
+        i = 0;
+        while i < n {
+            let path_filename = format!("/tmp/test/{}/{}.txt", random, i);
+            let mut file = File::open(path_filename)?;
+            // let mut contents = String::new();
+            file.read_to_string(&mut test)?;
+            i = i + 1;
+        }
+        println!("{}", test);
+
+        Ok(())
     }
 
     let example1 = warp::get()
         .and(warp::path("api"))
-        .and(warp::path("matrix"))
+        .and(warp::path("filesystem"))
         .and(warp::query::<HashMap<String, String>>())
         .map(|p: HashMap<String, String>| match p.get("n") {
             Some(n) => {
                 let integer_number = convert(n);
-                matrix(integer_number);
+                let size = 10240;
+                let _res = filesystem(integer_number, size);
 
                 let mut map = Map::new();
                 let mut inner_map = Map::new();
-                inner_map.insert("test".to_string(), serde_json::Value::String("matrix test".to_string()));
+                inner_map.insert("test".to_string(), serde_json::Value::String("filesystem test".to_string()));
                 inner_map.insert("N".to_string(), serde_json::Value::String(integer_number.to_string()));
+                inner_map.insert("Size".to_string(), serde_json::Value::String(size.to_string()));
                 
                 map.insert("success".to_string(), Value::Bool(true));
                 map.insert("payload".to_string(), serde_json::Value::Object(inner_map));
                 warp::reply::json(&map)
             },
             None => {
-                let integer_number: i64 = 100;
-                matrix(integer_number);
+                let integer_number: i64 = 10000;
+                let size = 10240;
+                let _res = filesystem(integer_number, size);
 
                 let mut map = Map::new();
                 let mut inner_map = Map::new();
-                inner_map.insert("test".to_string(), serde_json::Value::String("matrix test".to_string()));
+                inner_map.insert("test".to_string(), serde_json::Value::String("filesystem test".to_string()));
                 inner_map.insert("N".to_string(), serde_json::Value::String(integer_number.to_string()));
+                inner_map.insert("Size".to_string(), serde_json::Value::String(size.to_string()));
                 
                 map.insert("success".to_string(), Value::Bool(true));
                 map.insert("payload".to_string(), serde_json::Value::Object(inner_map));
